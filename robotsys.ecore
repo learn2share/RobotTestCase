@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="robotsys" nsURI="http://robotsys/1.0" nsPrefix="robotsys">
+  <eClassifiers xsi:type="ecore:EClass" name="Actuator" eSuperTypes="#//RobotNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ContractIdentifier" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ServiceIdentifier" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MotorPort" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//RobotProxy"
+        eOpposite="#//RobotProxy/actuatorconnected"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pwmMode" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//RobotNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ContractIdentifier" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ServiceIdentifier" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SensorPort" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//RobotProxy"
+        eOpposite="#//RobotProxy/sensorconnected"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Registration" eSuperTypes="http://www.eclipse.org/emf/2002/Ecore#//EModelElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="robotnodes" upperBound="-1"
+        eType="#//RobotProxy" containment="true" eOpposite="#//RobotProxy/parent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RobotNode" eSuperTypes="http://www.eclipse.org/emf/2002/Ecore#//EModelElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RobotProxy" eSuperTypes="#//RobotNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="avaliable" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="connectiontype" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="batteryvoltage" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Registration"
+        eOpposite="#//Registration/robotnodes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensorconnected" eType="#//Sensor"
+        containment="true" eOpposite="#//Sensor/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actuatorconnected" eType="#//Actuator"
+        containment="true" eOpposite="#//Actuator/parent"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robotarch:Registration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:robotarch="http://www.zstu.edu.cn/robot/robotarch" registrationId="11110010" name="TestCase">
+  <nodes name="NXT Robot" isAvailable="true" connectedtype="">
+    <actuatorconnected name="DifferentialDrive"/>
+    <sensorconnected id="11110010" name="ColorSensor" type="color" value="160,207,160" powerConsumption="0.0182"/>
+    <sensorconnected id="111101" name="BrightnessSensor" value="0.10040119485294104" powerConsumption="0.0197"/>
+    <sensorconnected id="11" name="Compass" type="touch" value="0.627" powerConsumption="0.0197"/>
+  </nodes>
+</robotarch:Registration>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robotsys:Registration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:robotsys="http://www.zstu.edu.cn/robot/robotsys" id="11110010" name="TestCase">
+  <robotnodes id="101" name="NXT Robot" connectiontype="bluetooth">
+    <sensorconnected name="BrightnessSensor" ContractIdentifier="http://schemas.microsoft.com/2009/09/multiplesimulatedsensors.user.html" ServiceIdentifier="1110010" SensorPort="Port 4" value="160,207,160"/>
+    <sensorconnected id="11" name="Compass" ContractIdentifier="http://schemas.microsoft.com/2009/09/multiplesimulatedsensors.user.html" ServiceIdentifier="182617583821406168" SensorPort="Port 2" value="0.399991859"/>
+    <actuatorconnected name="DifferentialDrive" ContractIdentifier="http://schemas.microsoft.com/robotics/2006/05/motor.htm" pwmMode="2"/>
+  </robotnodes>
+</robotsys:Registration>
